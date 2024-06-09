@@ -1,0 +1,39 @@
+query 6
+
+db.cl.find(
+{
+    statusesCount: { $lt: 203,$gt: 200  },
+},
+{	
+		followersCount:1
+})
+
+
+
+<Output>
+
+
+cw2> db.cl.find(
+... {
+... statusesCount: { $lt: 203,$gt: 200 },
+... },
+... { 
+... followersCount:1
+... })
+[
+  { _id: ObjectId('665144158d7f119be698c32a'), followersCount: 139 },
+  { _id: ObjectId('665144168d7f119be698c856'), followersCount: 16 },
+  { _id: ObjectId('665144168d7f119be698cb0f'), followersCount: 7 },
+  { _id: ObjectId('665144168d7f119be698cc2c'), followersCount: 1056 },
+  { _id: ObjectId('665144168d7f119be698cee6'), followersCount: 23 },
+  { _id: ObjectId('665144168d7f119be698cee8'), followersCount: 23 },
+  { _id: ObjectId('665144178d7f119be698dee3'), followersCount: 79 },
+  { _id: ObjectId('665144178d7f119be698f02c'), followersCount: 25 },
+  { _id: ObjectId('665144178d7f119be698f084'), followersCount: 322 },
+  { _id: ObjectId('665144178d7f119be698f7a2'), followersCount: 77 },
+  { _id: ObjectId('665144188d7f119be699159d'), followersCount: 344 }
+]
+cw2> 
+
+
+

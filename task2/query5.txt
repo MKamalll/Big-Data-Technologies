@@ -1,0 +1,36 @@
+query 5
+
+db.cl.aggregate([
+    {
+        $match: {
+            friendsCount: { $gte: 1000 },    // At least 1000 friends
+            verb: "post",                    // Posted a tweet
+            body: { $regex: /Madrid/ } // Body contains the string "Madrid" (case sensitive)
+        }
+    },
+    {
+        $count: "numberOfUsers" // Count the number of matching documents
+    }
+]);
+
+
+<Output>
+
+
+cw2> db.cl.aggregate([
+... {
+... $match: {
+... friendsCount: { $gte: 1000 }, // At least 1000 friends
+... verb: "post", // Posted a tweet
+... body: { $regex: /Madrid/ } // Body contains the string "Madrid" (case sensitive)
+... }
+... },
+... {
+... $count: "numberOfUsers" // Count the number of matching documents
+... }
+... ]);
+[ { numberOfUsers: 189 } ]
+cw2> 
+
+
+

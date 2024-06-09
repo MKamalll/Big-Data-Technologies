@@ -1,0 +1,83 @@
+Query 2
+
+db.cl.find(
+    {
+        "displayName": { $regex: /^[Aa].*es$/ },  // Matches names starting with "A" (case insensitive) and ending with "es" (case sensitive)
+        "friendsCount": { $lt: 25 }            // Filters users with fewer than 25 friends
+    },
+    {
+        "displayName": 1,
+        "friendsCount": 1,
+        "followersCount": 1
+    }
+).sort({ "displayName": -1 });
+
+
+
+<output>
+
+
+cw2> db.cl.find(
+... {
+... "displayName": { $regex: /^[A/^.*es$/ }, // Matches names starting with "A" (case insensitive) and ending with "es" (case sensitive)
+... "friendsCount": { $lt: 25 } // Filters users with fewer than 25 friends
+... },
+... {
+... "displayName": 1,
+... "friendsCount": 1,
+... "followersCount": 1
+... }
+... ).sort({ "displayName": -1 });
+[
+  {
+    _id: ObjectId('665144158d7f119be698c284'),
+    displayName: 'angie torres',
+    friendsCount: 23,
+    followersCount: 33
+  },
+  {
+    _id: ObjectId('665144158d7f119be698c28e'),
+    displayName: 'angie torres',
+    friendsCount: 23,
+    followersCount: 33
+  },
+  {
+    _id: ObjectId('665144178d7f119be698f209'),
+    displayName: 'Arizona Companies',
+    friendsCount: 0,
+    followersCount: 10
+  },
+  {
+    _id: ObjectId('665144178d7f119be698e20b'),
+    displayName: 'Adejies',
+    friendsCount: 13,
+    followersCount: 10
+  },
+  {
+    _id: ObjectId('665144178d7f119be698f247'),
+    displayName: 'Adejies',
+    friendsCount: 13,
+    followersCount: 10
+  },
+  {
+    _id: ObjectId('665144178d7f119be698f751'),
+    displayName: 'Adejies',
+    friendsCount: 13,
+    followersCount: 10
+  }
+]
+cw2> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

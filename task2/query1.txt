@@ -1,0 +1,31 @@
+Script 1: Load data to the database: 
+
+mongoimport --db cw2 --collection cl --drop --file championsleague_1.json
+
+
+<output>
+
+
+NSHAMSEE-M-NXX7:~ nshamsee$ mongoimport --db cw2 --collection cl --drop --file championsleague_1.json
+2024-05-24T20:53:04.094+0400	connected to: mongodb://localhost/
+2024-05-24T20:53:04.095+0400	dropping: cw2.cl
+2024-05-24T20:53:04.638+0400	23285 document(s) imported successfully. 0 document(s) failed to import.
+NSHAMSEE-M-NXX7:~ nshamsee$
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

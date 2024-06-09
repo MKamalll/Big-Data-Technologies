@@ -1,0 +1,63 @@
+query 4
+db.cl.aggregate([
+    {
+        $match: {
+            followersCount: { $gt: 0 }, // Match documents where number of followers is greater than 0
+	        friendsCount: { $gt: 0 } // Match documents where number of followers is greater than 0
+        }
+    },
+    {
+        $project: {
+            ratio: { $divide: ["$followersCount", "$friendsCount"] } // Calculate the ratio of followers to friends for each document
+        }
+    },
+    {
+        $group: {
+            _id: null, // Group all documents together
+            averageRatio: { $avg: "$ratio" } // Calculate the average ratio
+        }
+    },
+    {
+        $project: {
+            averageRatio: 1
+        }
+    }
+]);
+
+
+
+
+<Output>
+
+
+
+cw2> db.cl.aggregate([
+... {
+... $match: {
+... followersCount: { $gt: 0 }, // Match documents where number of followers is greater than 0
+... friendsCount: { $gt: 0 } // Match documents where number of followers is greater than 0
+... }
+... },
+... {
+... $project: {
+... ratio: { $divide: ["$followersCount", "$friendsCount"] } // Calculate the ratio of followers to friends for each document
+... }
+... },
+... {
+... $group: {
+... _id: null, // Group all documents together
+... averageRatio: { $avg: "$ratio" } // Calculate the average ratio
+... }
+... },
+... {
+... $project: {
+... averageRatio: 1
+... }
+... }
+... ]);
+[ { _id: null, averageRatio: 156.5685824143264 } ]
+cw2> 
+
+
+
+

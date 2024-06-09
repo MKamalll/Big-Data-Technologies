@@ -1,0 +1,17 @@
+Query 3
+db.cl.aggregate ( [
+     { $match: {"friendsCount": {$gt: 100000 } }},  // Match documents where friendsCount is greater than 100000
+     { $group: { _id:0, Average: { $avg: '$followersCount'}  }   }
+] )
+
+
+<Output>
+
+
+cw2> db.cl.aggregate ( [
+...      { $match: {"friendsCount": {$gt: 100000 } }},  // Match documents where friendsCount is greater than 100000
+...      { $group: { _id:0, Average: { $avg: '$followersCount'}  }   }
+... ] )
+[ { _id: 0, Average: 581728.3636363636 } ]
+cw2> 
+
